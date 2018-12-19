@@ -1,0 +1,42 @@
+// Place all the styles related to the logs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+main {
+
+  justify-content: center;
+
+  .segment {
+
+
+    .container {
+      display: flex;
+      justify-content: space-evenly;
+      /* padding: 10px; */
+      align-items: center;
+
+    }
+
+    .cell {
+      flex-grow: inherit;
+      padding: 10px;
+      text-align: center;
+
+    }
+
+    input,
+    label {
+      width: 100%;
+      padding: 10px;
+    }
+
+    input[type='number'],
+     {
+      background-color: #666;
+      border: none;
+      color: #cc0000;
+    }
+
+  }
+}
