@@ -1,6 +1,6 @@
 class Log < ApplicationRecord
 
-
+  belongs_to :user
   before_create :register_date
 
   scope :recent, -> { order(date: :desc)}

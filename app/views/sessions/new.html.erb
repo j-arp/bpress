@@ -1,0 +1,28 @@
+<div class="row m-1">
+  <div class="col col-12">
+    <h2>Log In</h2>
+  </div>
+</div>
+
+<%= form_tag sessions_path do %>
+  <div class="row align-items-end m-1 mb-4">
+
+    <div class="col col-6 col-md-4">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email], class: 'form-control form-control-lg'  %>
+    </div>
+
+    <div class="col col-6 col-md-4">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, "", class: 'form-control form-control-lg'  %>
+    </div>
+
+
+   <div class="col-12 col-md-4 mt-2 mt-md-0">
+    <%= submit_tag "Log In", class: 'btn btn-lg btn-success btn-block' %>
+  </div>
+
+
+</div>
+
+<% end %>
