@@ -43,7 +43,7 @@ class LogsController < ApplicationController
   def update
     respond_to do |format|
       if @log.update(log_params)
-        format.html { redirect_to @log, notice: 'Log was successfully updated.' }
+        format.html { redirect_to logs_path, notice: 'Log was successfully updated.' }
         format.json { render :show, status: :ok, location: @log }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.require(:log).permit(:systolic, :diastolic, :date)
+      params.require(:log).permit(:systolic, :diastolic, :date, :heart_rate, :notes)
     end
 end
