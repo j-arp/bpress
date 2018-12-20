@@ -1,40 +1,34 @@
-<main>
 
 
 
-<p id="notice"><%= notice %></p>
+<%= render 'form', log: @log %>
 
-
-<h1>BPress Ultra Log</h1>
-
-
-<div class="segment">
-  <%= render 'form', log: @log %>
+<div class="row"></div>
+  <div class="col col-12">
+    <h2>Past Measurements</h2>
+  </div>
 </div>
 
+<div class="row"></div>
+  <div class="col col-10 offset-1">
+    <table class="table">
+      <tbody>
+        <% @logs.each do |log| %>
+          <tr>
+            <td width="25%"><%= log.systolic %> / <%= log.diastolic %></td>
+            <td width="50%"><%= log.date.strftime('%D %l:%M %P') %></td>
+            <td nowrap="nowrap">
+              <p class="btn-group">
+              <%= link_to 'Edit', edit_log_path(log), class: 'btn btn-sm btn-info' %>
+              <%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+              </p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<hr>
-<div class="segment">
-
-<table>
-
-  <tbody>
-    <% @logs.each do |log| %>
-      <tr>
-        <td width="25%"><%= log.systolic %> / <%= log.diastolic %></td>
-        <td width="50%"><%= log.date.strftime('%D %l:%M %P') %></td>
-        <td nowrap align="right">
-          <p class="btn-group">
-          <%= link_to 'Edit', edit_log_path(log), class: 'btn btn-sm btn-info' %>
-          <%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-          </p>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
+  </div>
 </div>
 
-</main>
+</div>
