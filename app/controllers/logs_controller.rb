@@ -1,10 +1,11 @@
 class LogsController < ApplicationController
+  before_action :require_current_user
   before_action :set_log, only: [:show, :edit, :update, :destroy]
 
   # GET /logs
   # GET /logs.json
   def index
-    @logs = Log.recent.limit(10)
+    @logs = @current_user.logs.recent.limit(10)
     @log = Log.new(systolic: Log.last&.systolic || 120, diastolic: Log.last&.diastolic || 90)
   end
 
@@ -26,6 +27,7 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
     @log = Log.new(log_params)
+    @log.user - @current_user
 
     respond_to do |format|
       if @log.save
@@ -65,7 +67,7 @@ class LogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_log
-      @log = Log.find(params[:id])
+      @log = @current_user.logs.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
