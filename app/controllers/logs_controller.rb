@@ -27,7 +27,7 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
     @log = Log.new(log_params)
-    @log.user - @current_user
+    @log.user = @current_user
 
     respond_to do |format|
       if @log.save
