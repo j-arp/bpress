@@ -1,19 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="row m-1">
+  <div class="col col-12  m-1">
+    <h2>
+      <%= @log.systolic %> /
+      <%= @log.diastolic %>
+    </h2>
+  <% if @log.heart_rate.present? %>
+    <p>
+      <strong>Pulse:</strong>
+      <%= @log.heart_rate %>
+    </p>
+  <% end %>
+  <p>
+    <strong>Date:</strong>
+    <%= @log.date %>
+  </p>
 
-<p>
-  <strong>Systolic:</strong>
-  <%= @log.systolic %>
-</p>
+  </div>
 
-<p>
-  <strong>Diastolic:</strong>
-  <%= @log.diastolic %>
-</p>
+  <div class="col-12 btn-group m-1">
+    <%= link_to fa_icon("reply", text: "Return"), logs_path, class: 'btn btn-lg btn-secondary' %>
+    <%= link_to fa_icon("edit", text: "Update") , edit_log_path(@log), class: 'btn btn-lg btn-info' %>
+    <%= link_to fa_icon("remove", text: "Remove"), @log, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-lg btn-danger' %>
 
-<p>
-  <strong>Date:</strong>
-  <%= @log.date %>
-</p>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_log_path(@log) %> |
-<%= link_to 'Back', logs_path %>
+
+

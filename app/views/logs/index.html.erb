@@ -1,30 +1,31 @@
 
 
-
 <%= render 'form', log: @log %>
 
-<div class="row"></div>
+
+<div class="row">
   <div class="col col-12">
     <h2>Past Measurements</h2>
   </div>
 </div>
 
-<div class="row"></div>
+<div class="row">
   <div class="col col-10 offset-1">
     <table class="table">
       <tbody>
         <% @logs.each do |log| %>
-          <tr>
+          <tr class="log-record">
             <td width="35%">
-            <%= log.systolic %>/<%= log.diastolic %>
-            <%= "(#{log.heart_rate})" if log.heart_rate.present? %>
+              <%= link_to log do %>
+                <%= log.systolic %>/<%= log.diastolic %>
+                <%= "(#{log.heart_rate})" if log.heart_rate.present? %>
+                <% end %>
             </td>
             <td><%= fa_icon('comment', title: log.notes) if log.notes.present? %></td>
             <td width="45%"><%= log.date.strftime('%m/%d %l:%M %P') %></td>
             <td nowrap="nowrap">
               <p class="btn-group">
-              <%# link_to fa_icon("edit") , edit_log_path(log), class: 'btn btn-sm btn-info' %>
-              <%# link_to fa_icon("remove"), log, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+
               </p>
             </td>
           </tr>
@@ -35,4 +36,3 @@
   </div>
 </div>
 
-</div>

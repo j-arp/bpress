@@ -1,4 +1,4 @@
-<div class="row m-1">
+<div class="row">
   <div class="col col-12">
     <h2>Take a Measurement</h2>
   </div>
@@ -22,7 +22,7 @@
 
 <div class="row align-items-center m-1 mb-4">
 
- <div class="col col-4 col-md-5">
+ <div class="col col-4 col-md-3">
     Systolic
   </div>
 
@@ -30,16 +30,16 @@
 
   </div>
 
-  <div class="col col-4 col-md-5">
+  <div class="col col-4 col-md-3">
     Dystolic
   </div>
 
-    <div class="col col-3 col-md-5">
+    <div class="col col-3 col-md-3">
     Pulse
   </div>
 
 
-  <div class="col col-4 col-md-5">
+  <div class="col col-4 col-md-3">
     <%= form.number_field :systolic, placeholder: 'Systolic', class: 'form-control form-control-lg' %>
   </div>
 
@@ -47,11 +47,11 @@
     /
   </div>
 
-  <div class="col col-4 col-md-5">
+  <div class="col col-4 col-md-3">
     <%= form.number_field :diastolic, placeholder: 'Diastolic', class: 'form-control form-control-lg' %>
   </div>
 
-    <div class="col col-3 col-md-5">
+    <div class="col col-3 col-md-3">
     <%= form.number_field :heart_rate, placeholder: 'Rate', class: 'form-control form-control-lg' %>
   </div>
 </div>

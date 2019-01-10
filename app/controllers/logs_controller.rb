@@ -6,7 +6,7 @@ class LogsController < ApplicationController
   # GET /logs.json
   def index
     @logs = @current_user.logs.recent.limit(10)
-    @log = Log.new(systolic: Log.last&.systolic || 120, diastolic: Log.last&.diastolic || 90)
+    @log = Log.new(systolic: Log.last&.systolic || 120, diastolic: Log.last&.diastolic || 90, heart_rate: Log.last.heart_rate || 72)
   end
 
   # GET /logs/1
