@@ -15,13 +15,16 @@
       <tbody>
         <% @logs.each do |log| %>
           <tr>
-            <td width="30%"><%= log.systolic %>/<%= log.diastolic %></td>
+            <td width="35%">
+            <%= log.systolic %>/<%= log.diastolic %>
+            <%= "(#{log.heart_rate})" if log.heart_rate.present? %>
+            </td>
             <td><%= fa_icon('comment', title: log.notes) if log.notes.present? %></td>
-            <td width="50%"><%= log.date.strftime('%m/%d %l:%M %P') %></td>
+            <td width="45%"><%= log.date.strftime('%m/%d %l:%M %P') %></td>
             <td nowrap="nowrap">
               <p class="btn-group">
-              <%= link_to fa_icon("edit") , edit_log_path(log), class: 'btn btn-sm btn-info' %>
-              <%= link_to fa_icon("remove"), log, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+              <%# link_to fa_icon("edit") , edit_log_path(log), class: 'btn btn-sm btn-info' %>
+              <%# link_to fa_icon("remove"), log, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
               </p>
             </td>
           </tr>

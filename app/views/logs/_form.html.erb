@@ -21,7 +21,25 @@
 
 
 <div class="row align-items-center m-1 mb-4">
-  <div class="col col-5 col-md-5">
+
+ <div class="col col-4 col-md-5">
+    Systolic
+  </div>
+
+  <div class="col col-1 text-center" >
+
+  </div>
+
+  <div class="col col-4 col-md-5">
+    Dystolic
+  </div>
+
+    <div class="col col-3 col-md-5">
+    Pulse
+  </div>
+
+
+  <div class="col col-4 col-md-5">
     <%= form.number_field :systolic, placeholder: 'Systolic', class: 'form-control form-control-lg' %>
   </div>
 
@@ -29,8 +47,12 @@
     /
   </div>
 
-  <div class="col col-6 col-md-5">
+  <div class="col col-4 col-md-5">
     <%= form.number_field :diastolic, placeholder: 'Diastolic', class: 'form-control form-control-lg' %>
+  </div>
+
+    <div class="col col-3 col-md-5">
+    <%= form.number_field :heart_rate, placeholder: 'Rate', class: 'form-control form-control-lg' %>
   </div>
 </div>
 
